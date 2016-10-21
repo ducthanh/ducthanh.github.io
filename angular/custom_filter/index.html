@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+    <style> body { font-size: 1.2em; }</style>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="MsgApp">
+    <h1>Custom Filters</h1>
+    <div ng-controller='MsgController'>
+        Original: {{ sayMessage() }}<br>
+        Loves: {{ sayLovesMessage() }}
+        <div>
+            <button ng-click="feedYaakov()">Feed Yaakov</button>
+            <br>
+            <img ng-src="images/yaakov_{{stateOfBeing}}.png">
+        </div>
+    </div>
+</body>
+</html>
