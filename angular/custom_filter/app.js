@@ -9,6 +9,7 @@
 
     function MsgController($scope, lovesFilter) {
         $scope.stateOfBeing = "hungry";
+        $scope.smile = "no";
 
         $scope.sayMessage = function () {
             var msg = "Yaakov likes to eat healthy snacks at night!";
@@ -22,14 +23,23 @@
         };
 
         $scope.feedYaakov = function () {
-            $scope.stateOfBeing = "fed";
+            if($scope.smile == "no"){
+                $scope.stateOfBeing = "fed";
+                $scope.smile= "yes";
+                console.log($scope.smile);
+            }else if($scope.smile=="yes"){
+                $scope.stateOfBeing = "hungry";
+                $scope.smile="no";
+                console.log($scope.smile);
+            }
+
         };
     }
     
 function LovesFilter() {
     return function (input) {
         input = input || "";
-        input.replace("likes", "loves");
+        input = input.replace("likes", "loves");
         return input;
     };
 }
