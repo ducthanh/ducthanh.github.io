@@ -2,9 +2,7 @@
 <h3>Search results {{ list.myTerm }}</h3>
 <ol>
   <li ng-repeat="item in list.items">
-    <b>{{ item.short_name }}</b>
-    - {{ item.name }}
-    : <i>{{ item.description }}</i>
+    <b>{{ item.short_name }}</b> {{ item.name }} : {{ item.description }}</i>
     <button ng-click="list.onRemove({index: $index});">Don't want this one!</button>
   </li>
 </ol>

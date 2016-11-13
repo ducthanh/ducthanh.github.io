@@ -44,7 +44,6 @@ function NarrowItDownController (MenuSearchService) {
       } else {
         menu.message = "";
       }
-      // console.log(menu);
     });
   }
 
@@ -63,20 +62,15 @@ function MenuSearchService($http, ApiBasePath) {
       url: (ApiBasePath + "/menu_items.json")
     })
     .then(function(response) {
-        var all = response.data;
+        var items = response.data;
         var foundItems = [];
-        console.log(searchTerm);
-        for (var i = 0; i < all.menu_items.length; i++) {
-          var item = all.menu_items[i];
+        for (var i = 0; i < items.menu_items.length; i++) {
+          var item = items.menu_items[i];
           if (searchTerm != null && searchTerm !== "" && item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
             foundItems.push(item);
           }
         }
         return { searchTerm: searchTerm, foundItems: foundItems };
-    })
-    .catch(function (error) {
-      console.log("Something went terribly wrong.");
-      return { searchTerm: "", foundItems: [] };
     });
   }
 }
