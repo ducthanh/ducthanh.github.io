@@ -1,0 +1,12 @@
+<div ng-if="list.items.length">
+  <h3>{{list.myTerm}}</h3>
+  <ol>
+    <li ng-repeat="item in list.items">
+      <b>{{ item.short_name}}</b> - {{item.name}} : {{item.description}}
+      <button ng-click="narrow.onRemove{{index: $index}}"> Don't want this one! </button>
+    </li>
+  </ol>
+</div>
+<div ng-if="list.myMessage.length">
+  <h3> {{list.myMessage}}</h3>
+</div>
